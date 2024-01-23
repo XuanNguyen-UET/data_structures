@@ -1,4 +1,3 @@
-//@ts-check
 //@ts-ignore
 // implement linked_list
 // with Methods:
@@ -22,19 +21,11 @@ export class Linked_list {
     this.length = 0;
     // create from an arr data
     if (data instanceof Array) {
-      // iterate over the arr 
+      // iterate over the arr
       for (const ele of data) {
         this.addLast(ele);
       }
     }
-  }
-
-  //initiateNode_Index
-  initiateNodeAndIndex() {
-    return {
-      currentHead: this.head,
-      currentIndex: 0,
-    };
   }
 
   // return the size of linked_list
@@ -96,15 +87,78 @@ export class Linked_list {
     return this.size();
   }
 
-  // print the linked_list
-  print() {
-    // itirate over a linked list use a while loop
-    let current = this.head;
-    while (current) {
-      console.log(current.value);
-      // move the current to the next node
-      current = current.next;
+  // Method: removeLast
+  removeLast() {
+    // if linked_list is null -> return null
+    if (this.isEmpty()) {
+      return null;
+    }
+    // if the size is 1
+    if (this.size() === 1) {
+      //Todo: removeHead
+      this.removeFirst();
+    } else {
+      const removed_node = this.last;
+      // iterate over the linked list until meet the last node
+      let current = this.head;
+      while (current.next.next) {
+        current = current.next;
+      }
+      // after while loop, current is the element before lastNode
+      // set the current as the lastNode
+      current.next = null;
+      current.last = current;
+      // decrease the size
+      this.length--;
+      return removed_node?.value;
     }
   }
-}
 
+  // Method: removeFirst
+  removeFirst() {
+    // if linked_list is null -> return null
+    if (this.isEmpty()) {
+      return null;
+    } else {
+      const removed_node = this.head;
+      // set the secondNode as the firstNode
+      this.head = this.head.next;
+      // decrease the size
+      this.length--;
+      return removed_node?.value;
+    }
+  }
+
+  // Method: Inverse the linkedList
+  // example 1->2->3 into 3->2->1
+  reverse() {
+    let curr = this.head;
+    let prev = null;
+    while (curr) {
+      let nextTmp = curr.next;
+      // set the current point to the prev element
+      curr.next = prev;
+      prev = curr;
+      // increase the iterator
+      curr = nextTmp;
+    }
+    this.head = prev;
+  }
+  // Method: print the linked_list
+  print() {
+    // itirate over a linked list use a while loop
+    let cur = this.head;
+    while (cur) {
+      console.log(cur.value);
+      // move the current to the next node
+      cur = cur.next;
+    }
+  }
+
+  // Method: clear the linked_list
+  clear() {
+    this.head = null;
+    this.last = null;
+    this.length = 0;
+  }
+}
