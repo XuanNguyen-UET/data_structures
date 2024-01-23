@@ -25,6 +25,7 @@ class Linked_list {
             // Todo: add last
         }
     }
-
     
+    
+
 }
