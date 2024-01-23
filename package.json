@@ -1,0 +1,10 @@
+{
+  "name": "data_structures",
+  "version": "1.0.0",
+  "description": "datastructures",
+  "main": "index.js",
+  "repository": "https://github.com/XuanNguyen-UET/data_structures.git",
+  "author": "XuanNguyen-UET <22022670@vnu.edu.vn>",
+  "license": "MIT",
+  "type": "module"
+}
