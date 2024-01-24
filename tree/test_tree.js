@@ -2,7 +2,8 @@
 // check tree
 import { node, BinaryTree } from "./tree.js"
 
-const arr = [1, 2, 3, 4, 5, 6]
+const arr = [3, 4, 1, 0, 6, 5, 2]
 
 const btree = new BinaryTree(arr)
 console.log(btree);
+console.log(btree.height());
