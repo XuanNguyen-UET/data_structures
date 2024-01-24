@@ -16,5 +16,8 @@ skip();
 linked_list_arr.reverse();
 skip();
 linked_list_arr.print();
+skip()
+const arr_ = linked_list_arr.toArray();
+console.log(arr_);
 skip();
 linked_list_arr.clear();

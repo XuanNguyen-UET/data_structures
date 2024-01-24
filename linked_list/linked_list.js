@@ -161,4 +161,15 @@ export class Linked_list {
     this.last = null;
     this.length = 0;
   }
+
+  // Method: Linked_list to Array
+  toArray() {
+    const result = [];
+    let current = this.head;
+    while (current) {
+      result.push(current.value);
+      current = current.next;
+    }
+    return result;
+  }
 }
